@@ -3,10 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>shilling E-Wallet </title>
+  <title>shilling E-Wallet</title>
+  <style>
+    .loader {
+      border: 16px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 16px solid #B1D34D;
+      width: 120px;
+      height: 120px;
+      animation: spin 2s linear infinite;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
 </head>
 <body>
-  <h1>Loading...</h1>
+  <div class="loader" id="loader"></div>
+  <div id="content" style="display:none;">
+    <h1>Loading...</h1>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var loader = document.getElementById("loader");
+      var content = document.getElementById("content");
+      setTimeout(function(){
+        loader.style.display = "none";
+        content.style.display = "block";
+      }, 3000); // أخفاء الـ Loader بعد 3 ثواني
+    });
+  </script>
   <script src="redirect.js"></script>
 </body>
 </html>
